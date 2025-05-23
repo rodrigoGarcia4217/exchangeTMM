@@ -1,0 +1,43 @@
+#editOrigins {
+    display: none;
+}
+#createOrigin {
+    display: none;
+}
+.general {
+    display: flex;
+}
+
+#createBallot {
+    display: none;
+}
+.edit {
+    gap: 2vh;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+.edit h5 {
+    font-size: 1.6vh;
+    font-weight: 600;
+}
+
+.contenedor {
+    gap: 6vh;
+    width: 60vw;
+    height: 60vh; 
+    padding: 2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: var(--white-10);
+    border-radius: var(--rad);
+    color: var(--black);
+    box-sizing: border-box;
+    font-size: 1.3vh;
+    border-collapse: separate !important;
+    margin: 0; 
+}

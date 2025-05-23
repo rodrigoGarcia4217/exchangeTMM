@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/alert.css}" />
+</head>
+<body>
+    <th:block th:fragment="alert">
+        <div id="successPopup" class="popup alert">
+            <div class="popup-container">
+                <div class="popup-center">
+                    <h4 id="successTitle"></h4>
+                </div>
+                <div class="popup-center">
+                    <b></b>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="warningPopup" class="popup alert">
+            <div class="popup-container">
+                <div class="popup-center">
+                    <h4 id="warningTitle"></h4>
+                </div>
+                <div class="popup-center">
+                    <b></b>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="errorPopup" class="popup alert">
+            <div class="popup-container">
+                <div class="popup-center">
+                    <h4 id="errorTitle"></h4>
+                </div>
+                <div class="popup-center">
+                    <b></b>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="confirmPopup" class="popup alert">
+            <div class="popup-container">
+                <div class="popup-center">
+                    <h4 id="confirmTitle"></h4>
+                </div>
+                <div class="popup-center">
+                    <b></b>
+                    <p></p>
+                </div>
+                <div class="popup-center">
+                    <button class="ok-btn" id="finishConfirmResponse">De Acuerdo</button>
+                </div>
+            </div>
+        </div>
+    </th:block>
+</body>
+</html>

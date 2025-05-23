@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" class="menu">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<th:block th:fragment="sidebar">
+		<nav class="main-menu">
+			<a class="brand-container" th:href="@{/index}">
+				<img class="brand" th:src="@{/images/logo.svg}" alt="tradebi-logo" />
+			</a>
+			<div class="scrollbar" id="style-1">
+				<div sec:authorize="hasAnyRole('MASTER', 'ADMIN')" class="dropdown">
+					<span class="dropbtn">
+						<i class="fa-solid fa-book"></i>
+						<span>Monitoreo GPS</span>
+					</span>
+					<div  class="dropdown-content">
+						<a  sec:authorize="hasAnyRole('MASTER', 'ADMIN')" th:href="@{/gps/gps}">Unidades Tiempo Real</a>
+						<a  sec:authorize="hasAnyRole('MASTER', 'ADMIN')" th:href="@{/gps/operators}">Movimientos</a>
+
+						
+					</div>
+				</div>
+
+			<div class="dropdown">
+			<span class="dropbtn">
+				<i class="fas fa-sign-out-alt color1 text-large"></i>
+				<a sec:autorize="isAuthenticated()" th:href="@{/logout}" class="color1 text-large"> Log Out </a>
+			</span>
+			</div>
+			</div>
+		</nav>
+	</th:block>
+</body>
+</html>

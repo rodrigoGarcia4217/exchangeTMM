@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+	<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" layout:decorate="~{fragments/layout}">	
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
+		<link rel="stylesheet" type="text/css" th:href="@{/css/gps/gps.css}" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"rel="stylesheet">
+	    <title>NEO | GPS Reporte</title>
+	</head>
+	<body>
+		<section layout:fragment="content" th:remove="tag">
+			<!-- GPS -->
+			<div class="custome-table">
+				<div class="table-title">
+					<h2>Ubicación de las unidades(GPS)</h2>
+				</div>
+					<div class="card-table">
+						<table id="correctiveTable" class="table table-borderless">
+							<thead>
+								<tr>
+									<th>No.Unidad</th>
+									<th>Estatus</th>
+									<th>Recorrido(KM)</th>
+									<th>Papeleta</th>
+									<th>Hodómetro</th>
+									<th>Fecha</th>
+									<th>Tiempo detenido</th>
+									<th>Tiempo recorrido</th>	
+									<th>Estado</th>	
+									<th>Ralenti</th>	
+									<th>Ver Ubicación</th>
+
+								</tr>
+							</thead>
+						</table>
+					</div>
+				</div>
+
+			</div>	
+			<script type="text/javascript" th:src="@{/js/gps/gps.js}"></script>
+		</section>
+	</body>
+</html>

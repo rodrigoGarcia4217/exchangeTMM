@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" layout:decorate="~{fragments/layout}">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" /> 
+	<link rel="stylesheet" type="text/css" th:href="@{/css/catalog/district.css}" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>NEO | DISTRITO</title>
+</head>
+	<body>
+		<section layout:fragment="content" th:remove="tag">
+			<!-- Tabla de Llantas -->
+			<div class="custome-table">
+				<div class="table-title">
+					<h2>Lista de Distritos</h2>
+					<button class="main-btn" onclick="openCreatePopup()"> <i class="fa-solid fa-location-dot"></i> Nuevo Distrito </button>
+				</div>
+				<div class="card-table">
+					<table id="originsTable" class="table table-borderless">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Coordinador</th>
+								<th>Distrito</th>
+								<th>Encargados</th>
+								<th>Editar</th>
+								<th>Visualizar Unidades</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+			<!-- Modal de Edición -->
+			<div class="popup" id="editOrigins">
+				<div class="popup-close">
+					<button class="close-btn" onclick="closePopups()"><i class="fa-solid fa-xmark"></i></button>
+				</div>
+				<form id="editOriginsForm" class="popup-container">
+				<h2>Editar Distrito</h2>
+					<div class="popup-views">
+						<div class="view left">
+							<div class="edit general">
+								<h5>Información de General</h5>
+								<input type="number" id="editId" hidden=true>
+								<div class="space">
+									<div class="entry">
+										<label for="type">Distrito:</label>
+												<select id="editDistrict" name="type">
+													<option value="">Selecciona una Opcion</option>
+													<option value="San José">San José</option>
+													<option value="Lázaro Cárdenas">Lázaro Cárdenas</option>
+													<option value="Ahuazotepec">Ahuazotepec</option>
+													<option value="Altamira">Altamira</option>
+													<option value="Poza Rica">Poza Rica</option>
+													<option value="Villahermosa">Villahermosa</option>
+		    								    </select>									
+		    					    </div>
+									<div class="entry">
+										<label for="cost">Nombre del Responsable:</label>
+										<input type="text"  id="editNameResponsible" name="cost"> 
+									</div>
+									<div class="entry">
+										<label for="distance">Nombre Primer Encargado:</label>
+										<input type="text"  id="editNameCharge" name="distance"> 
+									</div>
+									
+
+									<div class="entry">
+										<label for="distance">Nombre Segundo Encargado:</label>
+										<input type="text"  id="editNameCharge2" name="distance"> 
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="view right">
+							<div class="routes">
+								<button type="button" class="route active" id="editGeneral">Información de General</button>
+							</div>
+							<div class="action">
+								<button type="submit" class="main-btn"> 
+									Guardar
+									<i class="fa-solid fa-floppy-disk"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- Modal de Creación -->
+			<div class="popup" id="createOrigin">
+				<div class="popup-close">
+					<button class="close-btn" onclick="closePopups()"><i class="fa-solid fa-xmark"></i></button>
+				</div>
+				<form id="createOriginsForm" class="popup-container">
+					<h2>Crear Distrito</h2>
+					<div class="popup-views">
+						<div class="view left">
+							<div class="edit general">
+								<h5>Añadir General</h5>
+								<div class="space">							
+									<div class="entry">
+										<label for="type">Distrito:</label>
+												<select id="createDistrict" name="type">
+													<option value="">Selecciona una Opcion</option>
+													<option value="San José">San José</option>
+													<option value="Lázaro Cárdenas">Lázaro Cárdenas</option>
+													<option value="Ahuazotepec">Ahuazotepec</option>
+													<option value="Altamira">Altamira</option>
+													<option value="Poza Rica">Poza Rica</option>
+													<option value="Villahermosa">Villahermosa</option>
+
+		    								    </select>									
+		    					    </div>
+									<div class="entry">
+										<label for="cost">Nombre del Responsable:</label>
+										<input type="text"  id="createNameResponsible" name="cost"> 
+									</div>
+									<div class="entry">
+										<label for="distance">Nombre Primer Encargado:</label>
+										<input type="text"  id="createNameCharge" name="distance"> 
+									</div>
+									
+
+									<div class="entry">
+										<label for="distance">Nombre Segundo Encargado:</label>
+										<input type="text"  id="createNameCharge2" name="distance"> 
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="view right">
+							<div class="routes">
+								<button type="button" class="route active" id="createGeneral">Información de General</button>
+							</div>
+							<div class="action">
+								<button type="submit" class="main-btn"> 
+									Crear
+									<i class="fa-solid fa-floppy-disk"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+
+
+			        <!-- Modal de Mercancias -->
+					<div class="popup" id="createBallot">
+						<div class="popup-closer">
+							<button class="close-btn" onclick="closePopups()">
+								<i class="fa-solid fa-xmark"></i>
+							</button>
+						</div>
+						<div  class="contenedor max">
+							<h2>Ver Unidades</h2> 
+							<table id="ballotTable" class="tabla">		
+								<thead>
+									<tr>													
+										<th>Número Eco</th>			
+										<th>Modelo</th>	
+										<th>Marca</th>															
+										<th>Placa</th>														
+									</tr>			
+								</thead>
+							</table>
+						</div>
+					</div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+			<script type="text/javascript" th:src="@{/js/catalog/district.js}"></script>
+		</section>
+	</body>
+</html>
